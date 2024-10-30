@@ -96,8 +96,8 @@ const processed = products.map(product => {
     }
 
     return {
-        ...product,
-        on_sale: false // Add on-sale flag
+        ...product,     // Spread all existing product properties
+        on_sale: false  // Add on-sale flag
     };
 });
 
@@ -111,7 +111,7 @@ async function uploadToAlgolia() {
             indexName: indexName, // Specify index name
             objects: processed    // Pass the processed array of objects
         }, {
-            autoGenerateObjectIDIfNotExist: true // Request options
+            autoGenerateObjectIDIfNotExist: true // Generate ID if it doesnt exist
         });
 
         console.log('Upload completed successfully.');
